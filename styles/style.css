@@ -15,29 +15,11 @@ body {
   background-color: #222;
   color: #ccc;
   font-size: 20px;
-}
-
-div#page-wrapper {
-  position: relative;
   height: 100%;
   width: 100%;
 }
 
-aside#toggle-side-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 15%;
-  height: 100%;
-  z-index: 1;
-  background-color: #111;
-}
-
 main#primary-content {
-  position: absolute;
-  left: 15%;
-  top: 0;
-  width: 85%;
   height: 100%;
   padding: 5rem;
 }
@@ -69,12 +51,8 @@ p {
   position: relative;
 }
 
-.card-header::after {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
+ul#checkbox-container {
+  list-style-type: none;
 }
 
 .btn {

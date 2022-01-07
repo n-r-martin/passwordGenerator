@@ -5,19 +5,34 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   console.log('generate button clicked');
 
-  var password = generatePassword(5);
+  let passwordLength = document.querySelector("#characterCountSlider").value;
+  var password = generatePassword(passwordLength);
 
     function generatePassword(length) {
       let result = ' ';
-      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      const charactersLength = characters.length;
+      const characters ='abcdefghijklmnopqrstuvwxyz';
+      const uppercaseCharacters = characters.toUpperCase();
+      const numbers = '01234567890';
+      const specialChar = '!@#$%^&*';
+
+      // let lowercaseChecked = document.getElementById('lowercase-toggle').checked;
+      //   if (lowercaseChecked){ //checked
+      //     console.log('is checked');
+      //   } else{ //unchecked
+      //     console.log('is not checked');
+      //   }
+      
+      let availableCharacters = [characters, uppercaseCharacters, numbers, specialChar];
+      let generatorInput = availableCharacters.join();
+      const charactersLength = generatorInput.length;
+
       for ( let i = 0; i < length; i++ ) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          result += generatorInput.charAt(Math.floor(Math.random() * charactersLength));
       }
       return result;
   }
 
-console.log(generatePassword(5));
+console.log(`Password successfully generated: ${generatePassword(passwordLength)}`);
 
 let passwordText = document.querySelector("#password");
 passwordText.value = password;

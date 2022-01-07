@@ -8,12 +8,6 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <div #page-wrapper>
-    <aside id="toggle-side-container">
-
-    </aside>
-
-
     <main id="primary-content">
       <header>
         <h1>Password Generator</h1>
@@ -30,9 +24,33 @@
               aria-label="Generated Password"
             ></textarea>
           </div>
+
+          <div class="slidecontainer">
+            <input type="range" min="8" max="128" value="24" class="slider" id="characterCountSlider" oninput="this.nextElementSibling.value = this.value">
+            <output>24</output>
+          </div>
+
+          <ul id="checkbox-container">
+            <li>
+              <input type="checkbox" id="lowercase-toggle" name="lowercase-toggle" value="lowercase">
+              <label for="lowercas-toggle">Include Lowercase</label>
+            </li>
+            <li>
+              <input type="checkbox" id="uppercase-toggle" name="uppercase-toggle" value="uppercase">
+              <label for="uppercase-toggle">Include Uppercase</label>
+            </li>
+            <li>
+              <input type="checkbox" id="numbers-toggle" name="numbers-toggle" value="numbers">
+              <label for="numbers-toggle">Include Numbers</label>
+            </li>
+            <li>
+              <input type="checkbox" id="special-char-toggle" name="special-char-toggle" value="speacial-char">
+              <label for="speacial-char-toggle">Include Special Characters</label>
+            </li>
+          </ul>
+
           <button id="generate" class="btn">Generate</button>
         </div>
-      </div>
   </main>
 </div>
     <script src="scripts/script.js"></script>
