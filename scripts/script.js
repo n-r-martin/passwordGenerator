@@ -15,15 +15,33 @@ function writePassword() {
       const numbers = '01234567890';
       const specialChar = '!@#$%^&*';
 
-      // let lowercaseChecked = document.getElementById('lowercase-toggle').checked;
-      //   if (lowercaseChecked){ //checked
-      //     console.log('is checked');
-      //   } else{ //unchecked
-      //     console.log('is not checked');
-      //   }
+      // let availableCharacters = [characters, uppercaseCharacters, numbers, specialChar];
+
+      let availableCharacters = [];
+
+      const lowercaseChecked = document.getElementById('lowercase-toggle').checked;
+      const uppercaseChecked = document.getElementById('uppercase-toggle').checked;
+      const numbersChecked = document.getElementById('numbers-toggle').checked;
+      const specCharChecked = document.getElementById('special-char-toggle').checked;
+
+        if (lowercaseChecked == true){ //checked
+          availableCharacters.push(characters);
+        } 
+
+        if (uppercaseChecked == true){ //checked
+          availableCharacters.push(uppercaseCharacters);
+        } 
+
+        if (numbersChecked == true){ //checked
+          availableCharacters.push(numbers);
+        } 
+
+        if (specCharChecked == true){ //checked
+          availableCharacters.push(specialChar);
+        } 
       
-      let availableCharacters = [characters, uppercaseCharacters, numbers, specialChar];
-      let generatorInput = availableCharacters.join();
+      console.log(availableCharacters);
+      let generatorInput = availableCharacters.join("");
       const charactersLength = generatorInput.length;
 
       for ( let i = 0; i < length; i++ ) {
