@@ -1,45 +1,72 @@
-*,
-*::before,
-*::after {
+/* apply a natural box layout model to all elements, but allowing components to change */
+html, * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-html,
-body,
-.wrapper {
-  height: 100%;
+*, *:before, *:after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #222;
+  color: #ccc;
+  font-size: 20px;
+}
+
+div#page-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+aside#toggle-side-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 100%;
+  z-index: 1;
+  background-color: #111;
+}
+
+main#primary-content {
+  position: absolute;
+  left: 10%;
+  top: 0;
+  width: 90%;
+  height: 100%;
+  padding: 4rem 6rem;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 1rem;
+}
+
+p {
+  max-width: 500px;
+  line-height: 1.5;
 }
 
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-top: 4rem;
 }
 
-header {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
-}
+
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: #111;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
-  font-size: 18px;
-  margin: 0 auto;
   max-width: 800px;
-  padding: 30px 40px;
+  height: 300px;
+  padding: 108px 40px;
+  position: relative;
 }
 
 .card-header::after {
@@ -50,31 +77,9 @@ header {
   height: 2px;
 }
 
-.card-body {
-  min-height: 100px;
-}
-
-.card-footer {
-  text-align: center;
-}
-
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
-}
-
-.card-footer::after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: #7f5af0;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -82,10 +87,14 @@ header {
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  margin: 16px 16px 16px 20px;
+  margin: 16px 0;
+  clear: both;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
 }
 
 button[disabled] {
@@ -97,22 +106,18 @@ button[disabled] {
   float: right;
 }
 
-#password {
+textarea#password {
+  background-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border: none;
   display: block;
+  padding-top: 1rem;
   width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
   font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  text-align: right;
+  border-bottom: 2px solid #c0c7cf;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
