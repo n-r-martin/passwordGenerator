@@ -98,8 +98,15 @@ textarea#password {
   text-align: right;
   border-bottom: 2px solid #c0c7cf;
   resize: none;
-  overflow: hidden;
+  white-space: nowrap;
+  overflow: auto;
 }
+
+#password:focus {
+  outline: none;
+}
+
+
 
 @media (max-width: 690px) {
   .btn {
