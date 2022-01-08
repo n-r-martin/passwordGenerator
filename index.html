@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    
     <link rel="stylesheet" href="styles/style.css" />
+
+    <script src="https://kit.fontawesome.com/53fa436a3f.js" crossorigin="anonymous"></script>
+
   </head>
   <body>
     <main id="primary-content">
@@ -25,31 +29,40 @@
             ></textarea>
           </div>
 
-          <div class="slidecontainer">
-            <input type="range" min="8" max="128" value="24" class="slider" id="characterCountSlider" oninput="this.nextElementSibling.value = this.value">
-            <output>24</output>
+          <div id="ui-container">
+            <div class="slidecontainer">
+              <label for="chracterCountSlider">Password Length</label>
+              <input type="range" min="8" max="128" value="24" class="slider" id="characterCountSlider" name="chracterCountSlider" oninput="this.nextElementSibling.value = this.value">
+              <output>24</output>
+            </div>
+
+            <ul id="checkbox-container">
+              <li>
+                <input type="checkbox" id="lowercase-toggle" name="lowercase-toggle" value="lowercase" checked>
+                <label for="lowercase-toggle">Include Lowercase</label>
+              </li>
+              <li>
+                <input type="checkbox" class="checkbox" id="uppercase-toggle" name="uppercase-toggle" value="uppercase" checked>
+                <label for="uppercase-toggle">Include Uppercase</label>
+              </li>
+              <li>
+                <input type="checkbox" class="checkbox" id="numbers-toggle" name="numbers-toggle" value="numbers" checked>
+                <label for="numbers-toggle">Include Numbers</label>
+              </li>
+              <li>
+                <input type="checkbox" class="checkbox" id="special-char-toggle" name="special-char-toggle" value="special-char" checked>
+                <label for="special-char-toggle">Include Special Characters</label>
+              </li>
+            </ul>
+
+            <div id=copy-button-container>
+              <div id=copy-icon-container>
+                <i class="far fa-clipboard"></i>
+              </div>
+            </div>
+
+            <button id="generate" class="btn">Generate</button>
           </div>
-
-          <ul id="checkbox-container">
-            <li>
-              <input type="checkbox" id="lowercase-toggle" name="lowercase-toggle" value="lowercase" checked>
-              <label for="lowercase-toggle">Include Lowercase</label>
-            </li>
-            <li>
-              <input type="checkbox" id="uppercase-toggle" name="uppercase-toggle" value="uppercase" checked>
-              <label for="uppercase-toggle">Include Uppercase</label>
-            </li>
-            <li>
-              <input type="checkbox" id="numbers-toggle" name="numbers-toggle" value="numbers" checked>
-              <label for="numbers-toggle">Include Numbers</label>
-            </li>
-            <li>
-              <input type="checkbox" id="special-char-toggle" name="special-char-toggle" value="special-char" checked>
-              <label for="special-char-toggle">Include Special Characters</label>
-            </li>
-          </ul>
-
-          <button id="generate" class="btn">Generate</button>
         </div>
   </main>
 </div>

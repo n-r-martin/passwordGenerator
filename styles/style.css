@@ -46,14 +46,59 @@ p {
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   max-width: 800px;
-  height: 300px;
-  padding: 108px 40px;
+  padding: 40px 40px;
   position: relative;
+}
+
+div#ui-container {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+div.slidecontainer {
+  margin: 2rem 0;
+}
+
+.slidecontainer label {
+  margin-right: 1rem;
 }
 
 ul#checkbox-container {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
+
+ul#checkbox-container li input {
+  margin-right: 1rem;
+}
+
+div#copy-button-container {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  background-color: #222222;
+  cursor: pointer;
+}
+
+div#copy-icon-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#copy-icon-container i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 
 .btn {
   border: none;
@@ -62,17 +107,15 @@ ul#checkbox-container {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
-  display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  margin: 16px 0;
   clear: both;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
   position: absolute;
-  right: 40px;
-  bottom: 40px;
+  right: 0;
+  bottom: 0;
 }
 
 button[disabled] {

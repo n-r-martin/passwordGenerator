@@ -14,6 +14,7 @@ function writePassword() {
   //Declaring the variable that will eventually store the generated password and pass it to the DOM as rendered text
   let password = generatePassword(passwordLength);
 
+  // The lion's share of the work... this is where we generate a password of random chracters with help from the UI
   function generatePassword(length) {
       let result = ' ';
       const characters ='abcdefghijklmnopqrstuvwxyz';
@@ -96,3 +97,20 @@ passwordText.value = password;
 }
 
 
+// Function to copy the value of the field to the clipboard
+function copyPassword() {
+  /* Get the text field */
+  var copyText = document.getElementById("password");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+
+document.getElementById("copy-button-container").addEventListener('click', copyPassword)
