@@ -37,37 +37,24 @@ function writePassword() {
       // Storing the variables in an array that will be looped thorough to populate the availableCharacters array
       let checkboxArray = [lowercaseChecked, uppercaseChecked, numbersChecked, specCharChecked];
 
-      //Here's where the magic happens... very pleased I built this loop with my own brain. I think I'm learning something!
-      //Looping through all the checkboxes for as many as there are
+
+      //If all checkboxes in the checkboxArray are false, alert the user that at least one criteria (one checkbox) must be selected
+      //If at least one is true, then loops through all the checkboxes for as many as there are in the DOM
       //Then checks if the current checkbox being evaluated is indeed checked
       //If so, it pulls from the static resourceArray whose indexing mirrors that of the checkboxArray
       //It then pushes that stored string to the availableCharacters array, from which the generated password gets it input
       //Lastly, if the checkbox is unchecked, it does not push the stored string to availableChracters and logs it to the console as excluded
-      for (let i = 0; i < checkboxArray.length; i++) {
-        if (checkboxArray[i] == true ) {
-          availableCharacters.push(resourceArray[i]);  
-        } else {
-            console.log('Excluded ' + resourceArray[i]);
+      if (checkboxArray.every( e => e === false)) {
+        alert('Cannot generate password! Must select at least one criteria.');
+      } else {
+        for (let i = 0; i < checkboxArray.length; i++) {
+          if (checkboxArray[i] == true ) {
+            availableCharacters.push(resourceArray[i]);  
+          } else {
+              console.log('Excluded ' + resourceArray[i]);
+          }
         }
       }
-   
-  // Old solution to see if checboxes were checked and push corresponding arrays to availableCharacters array. 
-  //Leaving here for reference as it basically the loop above written out manually.
-  // if (lowercaseChecked == true){ //checked
-  //   availableCharacters.push(characters);
- // } 
-
-// if (uppercaseChecked == true){ //checked
-//   availableCharacters.push(uppercaseCharacters);
-// } 
-
-// if (numbersChecked == true){ //checked
-//   availableCharacters.push(numbers);
-// } 
-
-// if (specCharChecked == true){ //checked
-//   availableCharacters.push(specialChar);
-// } 
       
       
       // Log the current state of the availableChracters array to the console
@@ -92,7 +79,6 @@ let passwordText = document.querySelector("#password");
 
 // Render to the UI the generated password
 passwordText.value = password;
-
 // DONE!!
 }
 
@@ -116,5 +102,4 @@ function copyPassword() {
    });
 }
 
-
-document.getElementById("copy-button-container").addEventListener('click', copyPassword)
+document.getElementById("copy-button").addEventListener('click', copyPassword)
